@@ -66,10 +66,16 @@ h6 {
 
 
 
-html{
-
-}
 
 body{
+--black: #0f0f0f;
+  background-color: var(--black);
+  color: snow;
+  display: flex;
+}
+
+#navbar{
+  width: 20%;
+  text-align: center;
 
 }
