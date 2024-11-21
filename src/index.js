@@ -1,4 +1,11 @@
 import "./styles.css";
-import { createTodo } from "./createtodo";
+import { createTodo } from "./create-todo";
+import { createDefaultTodo, loadDefaultTodos } from "./load-default-project";
 
-const todo = createTodo("title 1", "this task is very sussy", "29-11-24", "default");
+// Code that will change between projects
+// Loading default project
+createDefaultTodo("test", "default", "today", "high")
+createDefaultTodo("t2", "default", "today", "high")
+document.querySelector("#default-todos").addEventListener("pointerdown", () => {
+  loadDefaultTodos();
+});
