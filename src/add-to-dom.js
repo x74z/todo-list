@@ -1,4 +1,4 @@
-export function addToDOM(todo) {
+export function addTodoToDOM(todo) {
   // select where the todo will be added
   const todosContainer = document.querySelector("#todos");
   // create the div of the todo
@@ -16,3 +16,4 @@ export function addToDOM(todo) {
   div.append(title, dueDate, description, priority);
   todosContainer.appendChild(div);
 }
+export function addProjectsToDom(project) { }
