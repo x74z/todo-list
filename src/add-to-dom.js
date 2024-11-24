@@ -13,7 +13,15 @@ export function addTodoToDOM(todo) {
   dueDate.textContent = todo.dueDate;
   const priority = document.createElement("h3");
   priority.textContent = todo.priority;
-  div.append(title, dueDate, description, priority);
+  const deleteButton = document.createElement("button");
+  deleteButton.addEventListener("pointerdown", () => {
+    // Remove them from both the DOM and the array in the class
+    todo.removeTodo();
+    div.remove();
+  });
+  div.append(title, dueDate, description, priority, deleteButton);
+
   todosContainer.appendChild(div);
 }
-export function addProjectsToDom(project) { }
+
+export function addProjectsToDom(project) {}

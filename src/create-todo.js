@@ -6,7 +6,7 @@ export class Todo {
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
-    this.dueDate = dueDate;
+    this.dueDate = new Date(dueDate);
     this.priority = priority;
     // Add the todos to the class, for easy access. If i want to delete everything, i can.
     Todo.todos.push(this);

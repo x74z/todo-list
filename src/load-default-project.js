@@ -2,7 +2,14 @@ import { Todo } from "./create-todo";
 import { addTodoToDOM } from "./add-to-dom";
 
 class DefaultTodo extends Todo {
-  static todos = [];
+  static todos = [
+    // new DefaultTodo(
+    //   "TestinArray",
+    //   "this todo is in array to test loading projects",
+    //   "November 24, 2024, 23:00",
+    //   "high",
+    // ),
+  ];
   static getTodos() {
     return DefaultTodo.todos;
   }
@@ -34,6 +41,7 @@ export function createDefaultTodo() {
   const priority = prompt("Priority: high, medium, low, none");
   const todo = new DefaultTodo(title, description, dueDate, priority);
   addTodoToDOM(todo);
+  console.log(Todo.getTodos())
   // TESTTODOS(todo);
 }
 // function TESTTODOS(dfeaulttodo) {
