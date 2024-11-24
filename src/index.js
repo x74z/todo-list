@@ -1,6 +1,6 @@
 import "./styles.css";
 import { createDefaultTodo, loadDefaultTodos } from "./load-default-project";
-import { loadTodayTodos } from "./load-today-todos";
+import { createTodayTodo, loadTodayTodos } from "./load-today-todos";
 
 // Code that will change between projects
 // Loading default project
@@ -11,3 +11,4 @@ document.querySelector("#add-default-todo").addEventListener("pointerdown", crea
 
 // Todays todo
 document.querySelector("#today").addEventListener("pointerdown", loadTodayTodos);
+document.querySelector("#add-todays-todo").addEventListener("pointerdown", createTodayTodo)
