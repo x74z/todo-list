@@ -24,4 +24,5 @@ export function addTodoToDOM(todo) {
   todosContainer.appendChild(div);
 }
 
-export function addProjectsToDom(project) {}
+// Idk if ill need this, this should loop through Todo.getTodos() and add them all.
+export function addEveryProjectToDom() {}

@@ -1,6 +1,6 @@
 import { addTodoToDOM } from "./add-to-dom";
-import { Todo } from "./create-todo";
 import { isToday, startOfToday } from "date-fns";
+import { Todo } from "./todo-class";
 
 function getTodosExpiringToday() {
   const allTodos = Todo.getTodos();
