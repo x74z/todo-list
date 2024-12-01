@@ -43,37 +43,15 @@ document
 document.querySelector("#add-project").addEventListener("pointerdown", () => {
   const projectName = "test";
   const projectTodos = [
-    {
-      title: "n",
-      description: "n",
-      dueDate: new Date("2024-12-01T14:43"),
-      priority: "none",
-      project: "test",
-    },
-    {
-      title: "d1",
-      description: "d1",
-      dueDate: new Date("2024-12-12T14:43"),
-      priority: "none",
-      project: "test",
-    },
-    {
-      title: "d2",
-      description: "d2",
-      dueDate: new Date("2024-12-19T16:44"),
-      priority: "high",
-      project: "test",
-    },
-    {
-      title: "tomorrow n",
-      description: "afds",
-      dueDate: new Date("2024-12-02T23:59"),
-      priority: "high",
-      project: "test",
-    },
+    ["n", "n", new Date("2024-12-01T14:43"), "none", "test"],
+    ["d1", "d1", new Date("2024-12-12T14:43"), "none", "test"],
+    ["d2", "d2", new Date("2024-12-19T16:44"), "high", "test"],
+    ["tomorrow n", "afds", new Date("2024-12-02T23:59"), "high", "test"],
   ];
+  let finalTodos = [];
   projectTodos.forEach((t) => {
-    Todo.todos.push(t);
+    const todo = new Todo(t[0], t[1], t[2], t[3], t[4]);
+    finalTodos.push(todo);
   });
-  const newProject = new Project(projectName, projectTodos);
+  const newProject = new Project(projectName, finalTodos);
 });

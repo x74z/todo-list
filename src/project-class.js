@@ -33,7 +33,7 @@ export class Project {
   createTodo(title, description, dueDate, priority) {
     // Switch to the todos(load them) after making the new todo
     this.loadAllTodos();
-    const todo = new Todo(title, description, dueDate, priority);
+    const todo = new Todo(title, description, dueDate, priority, this.projectName);
     this.addTodoToProjectArray(todo);
     addTodoToDOM(todo);
   }
