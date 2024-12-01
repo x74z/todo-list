@@ -42,6 +42,7 @@ export function showDialog(createTodoFunction) {
 
   // Add the event listener
   form.addEventListener("submit", handleClick);
+
 }
 
 // ALL OF THIS IS ME TRYING TO MAKE A DIALOG PROGRAMATICALLY, SO ILL KEEP IT TO LAUGH AT IT LATER

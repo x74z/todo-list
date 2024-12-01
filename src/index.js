@@ -4,12 +4,12 @@ import { addTodaysTodoWithDialog, loadTodayTodos } from "./load-today-todos";
 import { addTodoWithDialog, loadAllTodos } from "./load-all-todos";
 
 // TODO i should do one of these things:
-// !!!!!!!make it so when you add a todo, it switched to that project(just call loadTodos after adding it)
 //
 // !!Figure out how to make more projects 
 //
 // lowp: !clean up the code and add comments
 // lowp: make it look good
+// bug? sometimes the Invalid date bug comes back...
 
 // Loading default project
 document.querySelector("#default-todos").addEventListener("pointerdown", loadDefaultTodos);

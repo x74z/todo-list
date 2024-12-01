@@ -11,10 +11,12 @@ export function loadAllTodos() {
   addAllTodosToDOM();
 }
 
-export function addTodoWithDialog(){
-  showDialog(createTodo)
+export function addTodoWithDialog() {
+  showDialog(createTodo);
 }
 function createTodo(title, description, dueDate, priority) {
+  // Switch to the todos(load them) after making the new todo
+  loadAllTodos();
   const todo = new Todo(title, description, dueDate, priority);
   addTodoToDOM(todo);
 }

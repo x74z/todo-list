@@ -6,12 +6,13 @@ export class Todo {
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
-    console.log(dueDate)
+    console.log(dueDate);
     this.dueDate = new Date(dueDate);
-    console.log(this.dueDate)
+    console.log(this.dueDate);
     this.priority = priority;
     // Add the todos to the class, for easy access. If i want to delete everything, i can.
     Todo.todos.push(this);
+    console.log(Todo.getTodos());
   }
   setPriorityTo(newPriority) {
     this.priority = newPriority;

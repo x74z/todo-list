@@ -31,6 +31,8 @@ export function addTodaysTodoWithDialog() {
   showDialog(createTodayTodo);
 }
 function createTodayTodo(title, description, dueDate, priority) {
+  // Switch to the todos(load them) after making the new todo
+  loadTodayTodos();
   const todo = new Todo(title, description, dueDate, priority);
   addTodoToDOM(todo);
 }

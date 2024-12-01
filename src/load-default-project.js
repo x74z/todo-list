@@ -15,14 +15,13 @@ export function addDefaultTodoWithDialog() {
   showDialog(createDefaultTodo);
 }
 function createDefaultTodo(title, description, dueDate, priority) {
+  // Switch to the todos(load them) after making the new todo
+  loadDefaultTodos();
   const todo = new DefaultTodo(title, description, dueDate, priority);
-  console.log(todo)
+  console.log(todo);
   addTodoToDOM(todo);
   // TESTTODOS(todo);
 }
-
-
-
 
 // function TESTTODOS(dfeaulttodo) {
 //   const todo = new Todo("test", "test", "test", "t");
