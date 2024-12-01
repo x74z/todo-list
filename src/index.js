@@ -40,7 +40,7 @@ document
   .querySelector("#add-todo")
   .addEventListener("pointerdown", addTodoWithDialog);
 // Add project functionality
-document.querySelector("#add-project").addEventListener("pointerdown", () => {
+function createProjectTest() {
   const projectName = "test";
   const projectTodos = [
     ["n", "n", new Date("2024-12-01T14:43"), "none", "test"],
@@ -54,4 +54,9 @@ document.querySelector("#add-project").addEventListener("pointerdown", () => {
     finalTodos.push(todo);
   });
   const newProject = new Project(projectName, finalTodos);
+}
+document.querySelector("#add-project").addEventListener("pointerdown", () => {
+  new Project(prompt("name"), []);
 });
+//Testing projects
+document.querySelector("#testProject").addEventListener("pointerdown", createProjectTest)

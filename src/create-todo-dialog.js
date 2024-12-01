@@ -47,7 +47,32 @@ export function showDialog(project) {
   form.addEventListener("submit", handleClick);
 }
 
-// ALL OF THIS IS ME TRYING TO MAKE A DIALOG PROGRAMATICALLY, SO ILL KEEP IT TO LAUGH AT IT LATER
+export function showDialogForNonProjects(createTodoFunction){
+
+  const dialog = document.querySelector("body > dialog");
+  dialog.showModal();
+
+  const form = document.querySelector("body > dialog > div > form");
+  function handleClick(e) {
+    e.preventDefault();
+    const todoTitle = form.title.value;
+    const todoDescription = form.description.value;
+    const todoDate = form.date.value;
+    const todoPriority = form.priority.value;
+    // (() => {
+    createTodoFunction(todoTitle, todoDescription, todoDate, todoPriority);
+    // })();
+    dialog.close();
+    clearForm();
+
+
+    form.removeEventListener("submit", handleClick);
+  }
+
+  // Add the event listener
+  form.addEventListener("submit", handleClick);
+}
+// ALL OF THIS IS ME TRYING TO MAKE A DIALOG PROGRAMATICALLY, SO ILL KEEP IT TO LAUGH AT IT LATER, or use it :>
 
 // function addTitleElement(titleDiv, dialog) {
 //   const dialogTitle = document.createElement("h2");

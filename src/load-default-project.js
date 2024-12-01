@@ -1,7 +1,7 @@
 import { Todo } from "./todo-class";
-import { addTodoToDOM } from "./add-to-dom";
+import { addTodoToDOM } from "./add-todo-to-dom";
 import { DefaultTodo } from "./default-todo-class";
-import { showDialog } from "./create-todo-dialog";
+import { showDialog, showDialogForNonProjects } from "./create-todo-dialog";
 
 function addDefaultsTodosToDOM() {
   DefaultTodo.getTodos().forEach((todo) => addTodoToDOM(todo));
@@ -12,12 +12,12 @@ export function loadDefaultTodos() {
 }
 
 export function addDefaultTodoWithDialog() {
-  showDialog(createDefaultTodo);
+  showDialogForNonProjects(createDefaultTodo);
 }
 function createDefaultTodo(title, description, dueDate, priority) {
   // Switch to the todos(load them) after making the new todo
   loadDefaultTodos();
-  const todo = new DefaultTodo(title, description, dueDate, priority);
+  const todo = new DefaultTodo(title, description, dueDate, priority, "default");
   console.log(todo);
   addTodoToDOM(todo);
   // TESTTODOS(todo);

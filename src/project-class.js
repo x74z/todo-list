@@ -1,5 +1,6 @@
-import { addProjectToDom, addTodoToDOM } from "./add-to-dom";
 import { showDialog } from "./create-todo-dialog";
+import { addTodoToDOM } from "./add-todo-to-dom";
+import { addProjectToDom } from "./add-project-to-dom";
 import { Todo } from "./todo-class";
 
 export class Project {
@@ -33,7 +34,13 @@ export class Project {
   createTodo(title, description, dueDate, priority) {
     // Switch to the todos(load them) after making the new todo
     this.loadAllTodos();
-    const todo = new Todo(title, description, dueDate, priority, this.projectName);
+    const todo = new Todo(
+      title,
+      description,
+      dueDate,
+      priority,
+      this.projectName, // Set the project property to the name.
+    );
     this.addTodoToProjectArray(todo);
     addTodoToDOM(todo);
   }
