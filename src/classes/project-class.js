@@ -1,7 +1,7 @@
-import { showDialog } from "./create-todo-dialog";
-import { addTodoToDOM } from "./add-todo-to-dom";
-import { addProjectToDom } from "./add-project-to-dom";
-import { Todo } from "./todo-class";
+import { showDialog } from "../create-todo-dialog";
+import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
+import { addProjectToDom } from "../dom-modules/add-project-to-dom";
+import { Todo } from "../classes/todo-class";
 
 export class Project {
   static projects = [];

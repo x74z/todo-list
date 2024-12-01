@@ -1,4 +1,4 @@
-import { getWeekdayMonthDayYearHourAndMinutesOfADate } from "./format-date-for-todos";
+import { getWeekdayMonthDayYearHourAndMinutesOfADate } from "../format-date-for-todos";
 
 export function addTodoToDOM(todo) {
   // select where the todo will be added

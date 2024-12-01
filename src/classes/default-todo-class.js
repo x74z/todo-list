@@ -1,4 +1,4 @@
-import { Todo } from "./todo-class";
+import { Todo } from "../classes/todo-class.js";
 
 export class DefaultTodo extends Todo {
   static todos = [];

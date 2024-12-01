@@ -1,11 +1,11 @@
 import { isToday, startOfToday } from "date-fns";
-import { addTodoToDOM } from "./add-todo-to-dom";
-import { Todo } from "./todo-class";
+import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
+import { Todo } from "../classes/todo-class";
 import {
   getTodaysDateInDatetimelocal,
   getWeekdayMonthDayYearHourAndMinutesOfADate,
-} from "./format-date-for-todos";
-import { showDialogForNonProjects } from "./create-todo-dialog";
+} from "../format-date-for-todos";
+import { showDialogForNonProjects } from "../create-todo-dialog";
 
 function getTodosExpiringToday() {
   const allTodos = Todo.getTodos();

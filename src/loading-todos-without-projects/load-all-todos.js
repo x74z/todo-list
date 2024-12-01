@@ -1,6 +1,6 @@
-import { addTodoToDOM } from "./add-todo-to-dom";
-import { showDialog, showDialogForNonProjects } from "./create-todo-dialog";
-import { Todo } from "./todo-class";
+import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
+import { showDialog, showDialogForNonProjects } from "../create-todo-dialog";
+import { Todo } from "../classes/todo-class";
 
 function addAllTodosToDOM() {
   Todo.getTodos().forEach((todo) => addTodoToDOM(todo));

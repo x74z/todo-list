@@ -2,11 +2,11 @@ import "./styles.css";
 import {
   addDefaultTodoWithDialog,
   loadDefaultTodos,
-} from "./load-default-project";
-import { addTodaysTodoWithDialog, loadTodayTodos } from "./load-today-todos";
-import { addTodoWithDialog, loadAllTodos } from "./load-all-todos";
-import { Project } from "./project-class";
-import { Todo } from "./todo-class";
+} from "./loading-todos-without-projects/load-default-project";
+import { addTodaysTodoWithDialog, loadTodayTodos } from "./loading-todos-without-projects/load-today-todos";
+import { addTodoWithDialog, loadAllTodos } from "./loading-todos-without-projects/load-all-todos";
+import { Project } from "./classes/project-class";
+import { Todo } from "./classes/todo-class";
 
 // TODO i should do one of these things:
 //
