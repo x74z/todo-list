@@ -1,6 +1,7 @@
 import { Todo } from "./todo-class";
 import { addTodoToDOM } from "./add-to-dom";
 import { DefaultTodo } from "./default-todo-class";
+import { showDialog } from "./create-todo-dialog";
 
 function addDefaultsTodosToDOM() {
   DefaultTodo.getTodos().forEach((todo) => addTodoToDOM(todo));
@@ -10,17 +11,19 @@ export function loadDefaultTodos() {
   addDefaultsTodosToDOM();
 }
 
-export function createDefaultTodo() {
-  // title, description, dueDate, priority
-  const title = prompt("Title: ");
-  const description = prompt("Description: ");
-  const dueDate = prompt("dueDate: 24/42/42");
-  const priority = prompt("Priority: high, medium, low, none");
+export function addDefaultTodoWithDialog() {
+  showDialog(createDefaultTodo);
+}
+function createDefaultTodo(title, description, dueDate, priority) {
   const todo = new DefaultTodo(title, description, dueDate, priority);
+  console.log(todo)
   addTodoToDOM(todo);
-  console.log(Todo.getTodos())
   // TESTTODOS(todo);
 }
+
+
+
+
 // function TESTTODOS(dfeaulttodo) {
 //   const todo = new Todo("test", "test", "test", "t");
 //   const defaulttodo = new DefaultTodo("test", "test", "test", "t");

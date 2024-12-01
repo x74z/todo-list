@@ -1,6 +1,11 @@
 import { addTodoToDOM } from "./add-to-dom";
 import { isToday, startOfToday } from "date-fns";
 import { Todo } from "./todo-class";
+import {
+  getTodaysDateInDatetimelocal,
+  getWeekdayMonthDayYearHourAndMinutesOfADate,
+} from "./format-date-for-todos";
+import { showDialog } from "./create-todo-dialog";
 
 function getTodosExpiringToday() {
   const allTodos = Todo.getTodos();
@@ -21,12 +26,11 @@ export function loadTodayTodos() {
   });
 }
 
-export function createTodayTodo() {
-  const todo = new Todo(
-    prompt("title: "),
-    prompt("description: "),
-    startOfToday(),
-    prompt("priority: "),
-  );
+export function addTodaysTodoWithDialog() {
+  document.querySelector("#date-input").value = getTodaysDateInDatetimelocal();
+  showDialog(createTodayTodo);
+}
+function createTodayTodo(title, description, dueDate, priority) {
+  const todo = new Todo(title, description, dueDate, priority);
   addTodoToDOM(todo);
 }

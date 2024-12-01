@@ -1,4 +1,5 @@
 import { addTodoToDOM } from "./add-to-dom";
+import { showDialog } from "./create-todo-dialog";
 import { Todo } from "./todo-class";
 
 function addAllTodosToDOM() {
@@ -10,12 +11,10 @@ export function loadAllTodos() {
   addAllTodosToDOM();
 }
 
-export function createTodo() {
-  // title, description, dueDate, priority
-  const title = prompt("Title: ");
-  const description = prompt("Description: ");
-  const dueDate = prompt("dueDate: 24/42/42");
-  const priority = prompt("Priority: high, medium, low, none");
+export function addTodoWithDialog(){
+  showDialog(createTodo)
+}
+function createTodo(title, description, dueDate, priority) {
   const todo = new Todo(title, description, dueDate, priority);
   addTodoToDOM(todo);
 }

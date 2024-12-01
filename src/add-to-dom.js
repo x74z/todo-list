@@ -1,3 +1,5 @@
+import { getWeekdayMonthDayYearHourAndMinutesOfADate } from "./format-date-for-todos";
+
 export function addTodoToDOM(todo) {
   // select where the todo will be added
   const todosContainer = document.querySelector("#todos");
@@ -10,7 +12,8 @@ export function addTodoToDOM(todo) {
   const description = document.createElement("p");
   description.textContent = todo.description;
   const dueDate = document.createElement("h2");
-  dueDate.textContent = todo.dueDate;
+  dueDate.textContent = getWeekdayMonthDayYearHourAndMinutesOfADate(todo.dueDate)
+  // TODO: maybe make this so instead of an h3, it makes the todo a color
   const priority = document.createElement("h3");
   priority.textContent = todo.priority;
   const deleteButton = document.createElement("button");
