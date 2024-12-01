@@ -19,7 +19,7 @@ function clearForm() {
 
 
 //Maybe change the name to express the createTodoFunctionality
-export function showDialog(project) {
+export function showDialog(projectObject) {
   // This function will show the dialog and add an event listener for the create Todo button
   // When that button gets clicker, the parameter of the function(That creates a new todo, specified by the caller)
   // will create a new todo, hopefully
@@ -34,7 +34,7 @@ export function showDialog(project) {
     const todoDate = form.date.value;
     const todoPriority = form.priority.value;
     // (() => {
-    project.createTodo(todoTitle, todoDescription, todoDate, todoPriority);
+    projectObject.createTodo(todoTitle, todoDescription, todoDate, todoPriority);
     // })();
     dialog.close();
     clearForm();

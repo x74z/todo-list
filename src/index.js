@@ -10,11 +10,13 @@ import { Todo } from "./todo-class";
 
 // TODO i should do one of these things:
 //
-// !!Figure out how to make more projects
+//!!!!Make it so that when deleting a todo it gets deleted from the project array
 //
+// Add more stuff to the todo, change project, show which project it is
+// color it according to the priority etc
+// //
 // lowp: !clean up the code and add comments
 // lowp: make it look good
-// bug? sometimes the Invalid date bug comes back...
 
 // Loading default project
 document
