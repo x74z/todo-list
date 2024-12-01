@@ -3,13 +3,12 @@ export class Todo {
   static getTodos() {
     return Todo.todos;
   }
-  constructor(title, description, dueDate, priority) {
+  constructor( title, description, dueDate, priority, project) {
     this.title = title;
     this.description = description;
-    console.log(dueDate);
     this.dueDate = new Date(dueDate);
-    console.log(this.dueDate);
     this.priority = priority;
+    this.project = project;
     // Add the todos to the class, for easy access. If i want to delete everything, i can.
     Todo.todos.push(this);
     console.log(Todo.getTodos());
@@ -32,8 +31,3 @@ export class Todo {
     Todo.getTodos().splice(indexOfTodo, 1);
   }
 }
-// console.log(new Todo("title", "very nice task", "tomorrow", "priority low", "default"))
-
-// export function createTodo(title, description, dueDate, priority) {
-//   return new Todo(title, description, dueDate, priority);
-// }

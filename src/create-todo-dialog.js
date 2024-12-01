@@ -13,11 +13,13 @@ function clearForm() {
   form.title.value = "";
   form.description.value = "";
   form.date.value = "";
-  // I have to figure out how to set No priority as the default from here
+  // TODO: I have to figure out how to set No priority as the default from here
   // form.priority.value = "";
 }
+
+
 //Maybe change the name to express the createTodoFunctionality
-export function showDialog(createTodoFunction) {
+export function showDialog(project) {
   // This function will show the dialog and add an event listener for the create Todo button
   // When that button gets clicker, the parameter of the function(That creates a new todo, specified by the caller)
   // will create a new todo, hopefully
@@ -27,22 +29,22 @@ export function showDialog(createTodoFunction) {
   const form = document.querySelector("body > dialog > div > form");
   function handleClick(e) {
     e.preventDefault();
-    // This will get the form values to the create Todo function when called
     const todoTitle = form.title.value;
     const todoDescription = form.description.value;
     const todoDate = form.date.value;
     const todoPriority = form.priority.value;
-    createTodoFunction(todoTitle, todoDescription, todoDate, todoPriority);
+    // (() => {
+    project.createTodo(todoTitle, todoDescription, todoDate, todoPriority);
+    // })();
     dialog.close();
     clearForm();
-    // Make sure it doesnt add the event listener every single time.
-    // this removes it to prevent 3 event listeners or more at the same time
+
+
     form.removeEventListener("submit", handleClick);
   }
 
   // Add the event listener
   form.addEventListener("submit", handleClick);
-
 }
 
 // ALL OF THIS IS ME TRYING TO MAKE A DIALOG PROGRAMATICALLY, SO ILL KEEP IT TO LAUGH AT IT LATER
