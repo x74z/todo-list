@@ -12,7 +12,11 @@ import { Todo } from "./classes/todo-class";
 //
 //
 // Add more stuff to the todo, change project, show which project it is
-// color it according to the priority etc
+//  keep styling the page
+//
+//
+// local storage feature
+//
 // //
 // lowp: !clean up the code and add comments
 //        split up add to dom module into different functions
