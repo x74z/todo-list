@@ -57,26 +57,103 @@ h6 {
   isolation: isolate;
 }
 
-
-
-
-
-
-
-
-
-
-
-body{
---black: #0f0f0f;
-  background-color: var(--black);
+body {
+  --black: #0f0f0f;
+  --lighter-black: #222222;
+  --cerulean: #437c90;
+  --white: snow;
+  background-color: var(--lighter-black);
   color: snow;
   display: flex;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  gap: 5px;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 
-#navbar{
+#navbar {
   width: 20%;
   text-align: center;
+  background-color: var(--cerulean);
+  border-radius: 0 20px 20px 0;
+}
 
+#content {
+  width: 80%;
+}
+
+#todos {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* 13 on the left side because there is a 5px gap */
+  padding: 5px 18px 5px 13px;
+  gap: 20px;
+  color: var(--black);
+}
+
+/* Todo styling */
+.todo {
+  background-color: #dedede;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  /* Title */
+  h1 {}
+
+  /* Date */
+  .todo-duedate {
+    margin-top: 2px;
+    font-weight: 200;
+  }
+
+  /* Description */
+  .todo-description {
+    margin-top: 5px;
+  }
+
+  /* Delete button */
+  button {
+    border-radius: 5px;
+    border: 2px solid black;
+    width: 30px;
+    height: 30px;
+  }
+
+  --border-size: 3px;
+}
+
+.high-priority {
+  --high-priority-border: red;
+  border: var(--border-size) solid red;
+  /* button{border-color: var(--high-priority-border)} */
+}
+
+.medium-priority {
+  --medium-priority-border: #ddffbb;
+  border: var(--border-size) solid #ddffbb;
+  /* button{border-color: var(--medium-priority-border)} */
+}
+
+.low-priority {
+  --low-priority-border: darkblue;
+  border: var(--border-size) solid darkblue;
+  /* button{border-color: var(--low-priority-border)} */
+}
+
+.none-priority {
+  /* background-color: red; */
+  border: var(--border-size) solid black;
 }

@@ -1,5 +1,5 @@
 import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
-import { showDialog, showDialogForNonProjects } from "../create-todo-dialog";
+import { showTodoCreationDialogForNonProjects } from "../create-todo-dialog";
 import { Todo } from "../classes/todo-class";
 
 function addAllTodosToDOM() {
@@ -12,7 +12,7 @@ export function loadAllTodos() {
 }
 
 export function addTodoWithDialog() {
-  showDialogForNonProjects(createTodo);
+  showTodoCreationDialogForNonProjects(createTodo);
 }
 function createTodo(title, description, dueDate, priority) {
   // Switch to the todos(load them) after making the new todo

@@ -19,7 +19,7 @@ function clearForm() {
 
 
 //Maybe change the name to express the createTodoFunctionality
-export function showDialog(projectObject) {
+export function showTodoCreationDialog(projectObject) {
   // This function will show the dialog and add an event listener for the create Todo button
   // When that button gets clicker, the parameter of the function(That creates a new todo, specified by the caller)
   // will create a new todo, hopefully
@@ -47,7 +47,7 @@ export function showDialog(projectObject) {
   form.addEventListener("submit", handleClick);
 }
 
-export function showDialogForNonProjects(createTodoFunction){
+export function showTodoCreationDialogForNonProjects(createTodoFunction){
 
   const dialog = document.querySelector("body > dialog");
   dialog.showModal();

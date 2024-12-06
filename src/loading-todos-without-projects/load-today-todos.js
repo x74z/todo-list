@@ -1,11 +1,8 @@
 import { isToday, startOfToday } from "date-fns";
 import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { Todo } from "../classes/todo-class";
-import {
-  getTodaysDateInDatetimelocal,
-  getWeekdayMonthDayYearHourAndMinutesOfADate,
-} from "../format-date-for-todos";
-import { showDialogForNonProjects } from "../create-todo-dialog";
+import { getTodaysDateInDatetimelocal } from "../format-date-for-todos";
+import { showTodoCreationDialogForNonProjects } from "../create-todo-dialog";
 
 function getTodosExpiringToday() {
   const allTodos = Todo.getTodos();
@@ -28,7 +25,7 @@ export function loadTodayTodos() {
 
 export function addTodaysTodoWithDialog() {
   document.querySelector("#date-input").value = getTodaysDateInDatetimelocal();
-  showDialogForNonProjects(createTodayTodo);
+  showTodoCreationDialogForNonProjects(createTodayTodo);
 }
 function createTodayTodo(title, description, dueDate, priority) {
   // Switch to the todos(load them) after making the new todo

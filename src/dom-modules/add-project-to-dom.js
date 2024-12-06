@@ -4,7 +4,7 @@ function createLoadProjectButton(projectObject) {
   button.type = "button";
   button.className = "load-project-button";
   button.id = `${projectObject.projectName}-todos`;
-  // If i dont have this inside an arrow function, this. will be the button
+  // If i dont have this inside an arrow function, this will be the button
   button.addEventListener("pointerdown", () => projectObject.loadAllTodos());
   return button;
 }
@@ -15,7 +15,7 @@ function createAddProjectTodoButton(projectObject) {
   button.className = "add-project-todo-button";
   button.id = `add-${projectObject.projectName}-todo`;
   button.addEventListener("pointerdown", () =>
-    // If i dont have this inside an arrow function, this. will be the button
+    // If i dont have this inside an arrow function, this will be the button
     projectObject.addTodoWithDialog(),
   );
   return button;
@@ -41,7 +41,7 @@ export function addProjectToDom(projectObject) {
   nav.appendChild(projectDiv);
   // Add the event listener for the delete project button
   deleteProjectButton.addEventListener("pointerdown", () => {
-    // If i dont have this inside an arrow function, this. will be the button
+    // If i dont have this inside an arrow function, this will be the button
     projectObject.deleteProject();
     projectDiv.remove();
   });
