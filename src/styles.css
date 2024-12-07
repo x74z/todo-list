@@ -103,7 +103,8 @@ body {
 
 /* Todo styling */
 .todo {
-  background-color: #dedede;
+  --todo-background-color: #dedede;
+  background-color: var(--todo-background-color);
   padding: 10px;
   border-radius: 20px;
   display: flex;
@@ -111,7 +112,12 @@ body {
   align-items: center;
 
   /* Title */
-  h1 {}
+  .todo-title {
+    background-color: var(--todo-background-color);
+    border: none;
+    font-size: 1.9rem;
+    font-weight: 500;
+  }
 
   /* Date */
   .todo-duedate {
@@ -121,6 +127,8 @@ body {
 
   /* Description */
   .todo-description {
+    background-color: var(--todo-background-color);
+    border: none;
     margin-top: 5px;
   }
 

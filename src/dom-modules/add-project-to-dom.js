@@ -30,6 +30,8 @@ function createDeleteProjectButton(projectObject) {
   return button;
 }
 
+// TODO: maybe move all of the above to their module???
+// Main function
 export function addProjectToDom(projectObject) {
   const projectButton = createLoadProjectButton(projectObject);
   const addTodoButton = createAddProjectTodoButton(projectObject);

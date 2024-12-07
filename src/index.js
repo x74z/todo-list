@@ -13,9 +13,9 @@ import { Todo } from "./classes/todo-class";
 //
 // Add more stuff to the todo, change project, show which project it is
 //  keep styling the page
+// SEARCh inside the project class for "TODO", ordering the appearance of todos by date
 //
-//
-// local storage feature
+// local storage feature(REMEMBER TO MAKE A BRANCH)
 //
 // //
 // lowp: !clean up the code and add comments
