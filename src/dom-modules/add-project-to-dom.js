@@ -41,7 +41,8 @@ export function addProjectToDom(projectObject) {
   projectDiv.className = "projects";
   projectDiv.append(deleteProjectButton, projectButton, addTodoButton);
   nav.appendChild(projectDiv);
-  // Add the event listener for the delete project button
+
+  // If moved outside to the create button i would need to pass projectDiv as an argument
   deleteProjectButton.addEventListener("pointerdown", () => {
     // If i dont have this inside an arrow function, this will be the button
     projectObject.deleteProject();

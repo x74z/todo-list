@@ -2,38 +2,38 @@ import { isPast, isToday, isTomorrow } from "date-fns";
 import { getWeekdayMonthDayYearHourAndMinutesOfADate } from "../format-date-for-todos";
 
 function createDescriptionInput(todo) {
-  const description = document.createElement("input");
+  const description = document.createElement("textarea");
   description.className = "todo-description";
   description.value = todo.description;
-  description.addEventListener("focusout", (e)=>{
+  description.addEventListener("focusout", (e) => {
     const newDescription = description.value;
     todo.setDescriptionTo(newDescription);
     // description.textContent = newDescription;
     console.log(newDescription);
-  })
+  });
   return description;
 }
-function createTitle(todo){
-  const title = document.createElement("input")
+function createTitle(todo) {
+  const title = document.createElement("input");
   title.textContent = todo.title;
   title.className = "todo-title";
   title.value = todo.title;
-  title.addEventListener("focusout", (e)=>{
+  title.addEventListener("focusout", (e) => {
     const newTitle = title.value;
     todo.setTitleTo(newTitle);
     // title.textContent = newTitle;
     console.log(newTitle);
-  })
+  });
   return title;
 }
 
-function getDueDateTextContent(todo){
+function getDueDateTextContent(todo) {
   if (isToday(todo.dueDate)) return "Today";
-    else if (isTomorrow(todo.dueDate)) return "Tomorrow"
-    else if (isPast(todo.dueDate)) return "Overdue"
-    else return getWeekdayMonthDayYearHourAndMinutesOfADate(todo.dueDate);
+  else if (isTomorrow(todo.dueDate)) return "Tomorrow";
+  else if (isPast(todo.dueDate)) return "Overdue";
+  else return getWeekdayMonthDayYearHourAndMinutesOfADate(todo.dueDate);
 }
-function createDueDate(todo){
+function createDueDate(todo) {
   const dueDate = document.createElement("p");
   dueDate.className = "todo-duedate";
   dueDate.textContent = getDueDateTextContent(todo);
@@ -57,7 +57,6 @@ export function addTodoToDOM(todo) {
   const title = createTitle(todo);
   const description = createDescriptionInput(todo);
   const dueDate = createDueDate(todo);
-  
 
   todoContentDiv.append(title, dueDate, description);
 

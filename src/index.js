@@ -11,7 +11,7 @@ import { Todo } from "./classes/todo-class";
 // TODO i should do one of these things:
 //
 //
-// Add more stuff to the todo, change project, show which project it is
+// Add more stuff to the todo, *change* project, show which project it is
 //  keep styling the page
 // SEARCh inside the project class for "TODO", ordering the appearance of todos by date
 //
@@ -22,6 +22,7 @@ import { Todo } from "./classes/todo-class";
 //        split up add to dom module into different functions
 //
 // lowp: make it look good
+// rlowp: make animations on click???
 
 // Loading default project
 document
@@ -58,11 +59,14 @@ function createProjectTest() { const projectName = "test"; const projectTodos = 
   let finalTodos = []; projectTodos.forEach((t) => { const todo = new Todo(t[0], t[1], t[2], t[3], t[4]); finalTodos.push(todo); });
   const newProject = new Project(projectName);
 }
-document.querySelector("#add-project").addEventListener("pointerdown", () => {
+document.querySelector(".js-add-project-button").addEventListener("pointerdown", () => {
+  // Validation logic to make sure space isnt written
   let projectName = prompt("Enter a project name: ");
-  while (projectName === '' || projectName === null) {
+  if (projectName === null) return;
+  while (projectName === '' || projectName === ' ') {
     console.log(projectName);
     projectName = prompt("Please enter a VALID name: ");
+    if (projectName === null) return;
   }
   new Project(projectName);
 });

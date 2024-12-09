@@ -4,15 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title></title>
-  <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <!-- Might wanna update this title... -->
+  <title>The todo client</title>
 </head>
 
 <body>
+
   <nav id="navbar">
-    <div id="All">Your projects.</div> <button type="button" id="add-project">+</button>
+      <div id="project-title-container">
+        <h1>Your projects.</h1>
+        <button type="button" id="add-project-button" class="js-add-project-button">+</button>
+      </div>
+    <div id="testing-projects">
+      <button type="button" id="testProject"> <strong>testProject</strong> </button>
+    </div>
+
+
     <div class="projects">
-        <button type="button" id="testProject"><strong>testProject</strong></button>
       <button type="button" id="all-todos">All Todos</button>
       <button type="button" id="add-todo">+</button>
     </div>

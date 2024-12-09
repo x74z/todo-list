@@ -85,6 +85,31 @@ body {
   text-align: center;
   background-color: var(--cerulean);
   border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  #project-title-container{
+background-color: pink;
+  }
+
+  .projects {
+    --project-buttons-background: #dedede;
+    --project-buttons-border-size: 2px;
+    button {
+      border-radius: 10px;
+      background-color: var(--project-buttons-background);
+      border: var(--project-buttons-border-size) solid black;
+      padding: 10px;
+    }
+
+  }
+}
+
+#project-title-container {
+  /* Also has the add button */
+  display: flex;
 }
 
 #content {
