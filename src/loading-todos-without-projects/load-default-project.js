@@ -2,14 +2,16 @@ import { Todo } from "../classes/todo-class";
 import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { DefaultTodo } from "../classes/default-todo-class";
 import { showTodoCreationDialogForNonProjects } from "../create-todo-dialog";
+import clearTodos from "../dom-modules/clear-todos";
 
 function addDefaultsTodosToDOM() {
   DefaultTodo.getTodos().forEach((todo) => addTodoToDOM(todo));
 }
 export function loadDefaultTodos() {
-  document.querySelector("#todos").innerHTML = "";
+  clearTodos();
   addDefaultsTodosToDOM();
 }
+
 
 export function addDefaultTodoWithDialog() {
   showTodoCreationDialogForNonProjects(createDefaultTodo);

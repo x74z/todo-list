@@ -26,6 +26,9 @@ export class Todo {
   setDueDateTo(newDueDate) {
     this.dueDate = newDueDate;
   }
+  setProjectTo(newProject){
+    this.project = newProject;
+  }
   removeTodo() {
     const indexOfTodo = Todo.todos.indexOf(this);
     Todo.getTodos().splice(indexOfTodo, 1);

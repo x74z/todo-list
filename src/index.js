@@ -11,7 +11,9 @@ import { Todo } from "./classes/todo-class";
 // TODO i should do one of these things:
 //
 //
-// Add more stuff to the todo, *change* project, show which project it is
+// Reload Project when moving a todo to another project
+// 
+//
 //  keep styling the page
 // SEARCh inside the project class for "TODO", ordering the appearance of todos by date
 //
@@ -26,26 +28,26 @@ import { Todo } from "./classes/todo-class";
 
 // Loading default project
 document
-  .querySelector("#default-todos")
+  .querySelector(".js-show-default-todos")
   .addEventListener("pointerdown", loadDefaultTodos);
 document
-  .querySelector("#add-default-todo")
+  .querySelector(".js-add-default-todo")
   .addEventListener("pointerdown", addDefaultTodoWithDialog);
 
 // Todays todo
 document
-  .querySelector("#today")
+  .querySelector(".js-show-today-todos")
   .addEventListener("pointerdown", loadTodayTodos);
 document
-  .querySelector("#add-todays-todo")
+  .querySelector(".js-add-todo-fortoday")
   .addEventListener("pointerdown", addTodaysTodoWithDialog);
 
 //All Todos
 document
-  .querySelector("#all-todos")
+  .querySelector(".js-show-all-todos")
   .addEventListener("pointerdown", loadAllTodos);
 document
-  .querySelector("#add-todo")
+  .querySelector(".js-add-todo")
   .addEventListener("pointerdown", addTodoWithDialog);
 
 

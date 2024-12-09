@@ -4,57 +4,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Might wanna update this title... -->
+  <!-- Might wanna update this title... -->
   <title>The todo client</title>
 </head>
 
 <body>
 
-  <nav id="navbar">
-      <div id="project-title-container">
-        <h1>Your projects.</h1>
-        <button type="button" id="add-project-button" class="js-add-project-button">+</button>
-      </div>
+  <nav id="navbar" class="nav nav--projects js-nav">
+      <div id="project-title-container" class="nav__title-container">
+      <h1 class="nav__title">Your projects.</h1>
+      <button type="button" id="add-project-button" class="nav__add-project-button js-add-project-button">+</button>
+    </div>
+      <!-- Delete when everything works fine -->
     <div id="testing-projects">
       <button type="button" id="testProject"> <strong>testProject</strong> </button>
     </div>
 
-
-    <div class="projects">
-      <button type="button" id="all-todos">All Todos</button>
-      <button type="button" id="add-todo">+</button>
-    </div>
-    <div class="projects">
-      <button type="button" id="default-todos">Defaults</button>
-      <button type="button" id="add-default-todo">+</button>
-    </div>
-    <div class="projects">
-      <button type="button" id="today">Today</button>
-      <button type="button" id="add-todays-todo">+</button>
-    </div>
+      <!-- Projects -->
+<div class="projects js-projects-container">
+        <div class="projects__project">
+          <button type="button"  class="projects__show-all-todos js-show-all-todos">All Todos</button>
+          <button type="button"  class="projects__add-todo js-add-todo">+</button>
+        </div>
+        <div class="projects__project">
+          <button type="button"  class="projects__show-default-todos js-show-default-todos">Defaults</button>
+          <button type="button"  class="project__add-default-todo js-add-default-todo">+</button>
+        </div>
+        <div class="projects__project">
+          <button type="button"  class="projects__show-today-todos js-show-today-todos">Today</button>
+          <button type="button"  class="projects__add-todo-fortoday js-add-todo-fortoday">+</button>
+        </div>
+</div>
   </nav>
 
   <div id="content">
-    <div id="current-project">DEFAULT PROJECTS</div>
-    <div id="todos">Welcome back</div>
+    <div class="content__current-project js-current-project">CURRENT PROJECT</div>
+    <div id="todos" class="content__todos js-todos"></div>
   </div>
-  <dialog id="add-todo-dialog">
+
+    <!-- Dialog for creating Todos -->
+  <dialog  class="dialog dialog--add-todo js-add-todo-dialog">
     <div>
       <div>
-        <h2>Add a new Todo</h2>
-        <button id="dialog-close-button">X</button>
+        <h2 class="dialog__title">Add a new Todo</h2>
+        <button class="dialog__close-button js-add-todo-dialog-close-button">X</button>
       </div>
-      <form method="dialog">
+      <form method="dialog" class="dialog__form js-add-todo-dialog-form">
         <input name="title" type="text" required placeholder="Title" />
         <input name="description" type="text" placeholder="Description" />
-        <input id="date-input" name="date" type="datetime-local" required />
+        <input  name="date" type="datetime-local" required />
         <select name="priority" required>
           <option value="high">High Priority</option>
           <option value="medium">Medium Priority</option>
           <option value="low">Low Priority</option>
           <option selected="selected" value="none">No Priority</option>
         </select>
-        <button id="submit-button" type="submit">Create Todo</button>
+        <button type="submit" class="dialog__submit-form js-add-todo-form-button">Create Todo</button>
+      </form>
+    </div>
+  </dialog>
+  <!-- Changing project dialog -->
+
+  <dialog class="dialog dialog--change-todo-project js-change-project-dialog">
+    <div>
+      <div>
+        <h2 class="dialog__title">Select a new project</h2>
+        <button class="dialog__close-button js-change-project-dialog-close-button">X</button>
+      </div>
+      <form method="dialog" class="dialog__form js-change-project-form">
+          <!-- The select should be populated in js, by checking the available projects -->
+        <select name="project" class="dialog__select js-change-project-select-element" required>
+
+        </select>
+        <button type="submit" class="dialog__submit-form js-change-project-submit-button">Change project</button>
       </form>
     </div>
   </dialog>

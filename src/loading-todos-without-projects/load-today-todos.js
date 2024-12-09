@@ -3,6 +3,7 @@ import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { Todo } from "../classes/todo-class";
 import { getTodaysDateInDatetimelocal } from "../format-date-for-todos";
 import { showTodoCreationDialogForNonProjects } from "../create-todo-dialog";
+import clearTodos from "../dom-modules/clear-todos";
 
 function getTodosExpiringToday() {
   const allTodos = Todo.getTodos();
@@ -16,7 +17,7 @@ function getTodosExpiringToday() {
 
 export function loadTodayTodos() {
   // Clear current tasks in DOM
-  document.querySelector("#todos").innerHTML = "";
+  clearTodos()
   const todayTodos = getTodosExpiringToday();
   todayTodos.forEach((todo) => {
     addTodoToDOM(todo);

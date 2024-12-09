@@ -2,9 +2,11 @@ import { showTodoCreationDialog } from "../create-todo-dialog";
 import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { addProjectToDom } from "../dom-modules/add-project-to-dom";
 import { Todo } from "../classes/todo-class";
+import clearTodos from "../dom-modules/clear-todos";
 
 export class Project {
   static projects = [];
+  static getProjects = ()=> Project.projects;
   constructor(projectName) {
     this.projectName = projectName;
     Project.projects.push(this.projectName);
@@ -50,14 +52,14 @@ export class Project {
     orderedTodosByPriority.forEach((todo) => addTodoToDOM(todo));
   }
 
-  loadAllTodos() {
-    document.querySelector("#todos").innerHTML = "";
+  loadProjectTodos() {
+    clearTodos()
     this.addAllTodosToDOM();
   }
 
   createTodo(title, description, dueDate, priority) {
     // this switches to the todos(load them) after making the new todo so they show up after making one
-    this.loadAllTodos();
+    this.loadProjectTodos();
     const todo = new Todo( title, description, dueDate, priority,
       this.projectName, // Set the project property to the name.
     );
