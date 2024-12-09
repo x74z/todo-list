@@ -12,6 +12,7 @@ import { Todo } from "./classes/todo-class";
 //
 //
 // Reload Project when moving a todo to another project
+// Style the dialog
 // 
 //
 //  keep styling the page
