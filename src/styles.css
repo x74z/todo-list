@@ -62,7 +62,8 @@ body {
   --lighter-black: #222222;
   --cerulean: #437c90;
   --white: snow;
-  width: 95vh;
+  /* This 100vh width somehow makes it better on phones?? keep this around until you learn responsive design */
+  width: 100vh;
   background-color: var(--lighter-black);
   color: snow;
   display: flex;
