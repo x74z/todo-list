@@ -25,7 +25,7 @@ export function loadTodayTodos() {
 }
 
 export function addTodaysTodoWithDialog() {
-  document.querySelector("#date-input").value = getTodaysDateInDatetimelocal();
+  document.querySelector(".js-add-todo-date-input").value = getTodaysDateInDatetimelocal();
   showTodoCreationDialogForNonProjects(createTodayTodo);
 }
 function createTodayTodo(title, description, dueDate, priority) {

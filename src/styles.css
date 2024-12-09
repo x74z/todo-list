@@ -62,6 +62,7 @@ body {
   --lighter-black: #222222;
   --cerulean: #437c90;
   --white: snow;
+  width: 95vh;
   background-color: var(--lighter-black);
   color: snow;
   display: flex;
