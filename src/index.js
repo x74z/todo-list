@@ -1,21 +1,9 @@
 import "./styles.css";
-import {
-  addDefaultTodoWithDialog,
-  loadDefaultTodos,
-} from "./loading-todos-without-projects/load-default-project";
-import {
-  addTodaysTodoWithDialog,
-  loadTodayTodos,
-} from "./loading-todos-without-projects/load-today-todos";
-import {
-  addTodoWithDialog,
-  loadAllTodos,
-} from "./loading-todos-without-projects/load-all-todos";
+import { addDefaultTodoWithDialog, loadDefaultTodos, } from "./loading-todos-without-projects/load-default-project";
+import { addTodaysTodoWithDialog, loadTodayTodos, } from "./loading-todos-without-projects/load-today-todos";
+import { addTodoWithDialog, loadAllTodos, } from "./loading-todos-without-projects/load-all-todos";
 import { Project } from "./classes/project-class";
 import { Todo } from "./classes/todo-class";
-import loadProjectsFromStorage from "./local-storage-functions/getting-stored-objects/get-projects-from-storage";
-import loadTodosFromStorage from "./local-storage-functions/getting-stored-objects/get-todos-from-storage";
-import { addProjectToDom } from "./dom-modules/add-project-to-dom";
 import getSavedProjects from "./local-storage-functions/getting-saved-items/get-saved-projects";
 import getSavedTodos from "./local-storage-functions/getting-saved-items/get-saved-todos";
 
@@ -25,19 +13,17 @@ import getSavedTodos from "./local-storage-functions/getting-saved-items/get-sav
 // Reload Project when moving a todo to another project
 // Style the dialog
 // Add date dialog change
+// Add overdue button to see expired todos
 //
 //
 //  keep styling the page
-// SEARCh inside the project class for "TODO", ordering the appearance of todos by date
 //
-// local storage feature(REMEMBER TO MAKE A BRANCH)
 //
 // //
 // lowp: !clean up the code and add comments
 //        split up add to dom module into different functions
 //
-// lowp: make it look good
-// rlowp: make animations on click???
+// rlowp: make animations when completing a todo???
 
 
 // This IIFE will run when loading the page
