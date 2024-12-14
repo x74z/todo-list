@@ -1,10 +1,10 @@
 import { isToday } from "date-fns";
-import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { Todo } from "../classes/todo-class";
 import { getTodaysDateInDatetimelocal } from "../format-date-for-todos";
 import { showTodoCreationDialogForNonProjects } from "../create-todo-dialog";
 import clearTodos from "../dom-modules/clear-todos";
 import setProjectTitleOfContent from "../dom-modules/set-current-projects-title";
+import addTodosArrayToDOM from "../dom-modules/add-todos-to-dom";
 
 function getTodosExpiringToday() {
   const allTodos = Todo.getTodos();
@@ -18,9 +18,7 @@ function getTodosExpiringToday() {
 
 function addAllTodosToDOM() {
   const todayTodos = getTodosExpiringToday();
-  todayTodos.forEach((todo) => {
-    addTodoToDOM(todo);
-  });
+  addTodosArrayToDOM(todayTodos);
 }
 export function loadTodayTodos() {
   clearTodos();
@@ -38,8 +36,7 @@ export function addTodaysTodoWithDialog() {
 
 function createTodayTodo(title, description, dueDate, priority) {
   // Switch to the todos(load them) after making the new todo
-  loadTodayTodos();
   // Due date will be today, refer to addTodaysTodoWithDialog
   const todo = new Todo(title, description, dueDate, priority, "none");
-  addTodoToDOM(todo);
+  loadTodayTodos();
 }

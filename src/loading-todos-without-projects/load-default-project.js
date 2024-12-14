@@ -1,16 +1,13 @@
-import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { DefaultTodo } from "../classes/default-todo-class";
 import { showTodoCreationDialogForNonProjects } from "../create-todo-dialog";
 import clearTodos from "../dom-modules/clear-todos";
 import setProjectTitleOfContent from "../dom-modules/set-current-projects-title";
+import addTodosArrayToDOM from "../dom-modules/add-todos-to-dom";
 
-function addDefaultsTodosToDOM() {
-  DefaultTodo.getTodos().forEach((todo) => addTodoToDOM(todo));
-}
 export function loadDefaultTodos() {
   clearTodos();
-  setProjectTitleOfContent("Default todos")
-  addDefaultsTodosToDOM();
+  setProjectTitleOfContent("Default todos");
+  addTodosArrayToDOM(DefaultTodo.getTodos());
 }
 
 
@@ -19,10 +16,9 @@ export function addDefaultTodoWithDialog() {
 }
 function createDefaultTodo(title, description, dueDate, priority) {
   // Switch to the todos(load them) after making the new todo
-  loadDefaultTodos();
   const todo = new DefaultTodo(title, description, dueDate, priority, "default");
-  console.log(todo);
-  addTodoToDOM(todo);
+  loadDefaultTodos();
+  // console.log(todo);
   // TESTTODOS(todo);
 }
 
