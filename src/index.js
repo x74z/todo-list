@@ -13,7 +13,8 @@ import { Todo } from "./classes/todo-class";
 //
 // Reload Project when moving a todo to another project
 // Style the dialog
-// 
+// Add date dialog change
+//
 //
 //  keep styling the page
 // SEARCh inside the project class for "TODO", ordering the appearance of todos by date

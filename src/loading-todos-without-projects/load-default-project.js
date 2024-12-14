@@ -1,14 +1,15 @@
-import { Todo } from "../classes/todo-class";
 import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { DefaultTodo } from "../classes/default-todo-class";
 import { showTodoCreationDialogForNonProjects } from "../create-todo-dialog";
 import clearTodos from "../dom-modules/clear-todos";
+import setProjectTitleOfContent from "../dom-modules/set-current-projects-title";
 
 function addDefaultsTodosToDOM() {
   DefaultTodo.getTodos().forEach((todo) => addTodoToDOM(todo));
 }
 export function loadDefaultTodos() {
   clearTodos();
+  setProjectTitleOfContent("Default todos")
   addDefaultsTodosToDOM();
 }
 

@@ -3,8 +3,11 @@ import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { addProjectToDom } from "../dom-modules/add-project-to-dom";
 import { Todo } from "../classes/todo-class";
 import clearTodos from "../dom-modules/clear-todos";
+import setProjectTitleOfContent from "../dom-modules/set-current-projects-title";
 
 export class Project {
+  // Here the projects will be stored as just names, since you only need the name
+  // to search through the todos, and add them to the dom.
   static projects = [];
   static getProjects = ()=> Project.projects;
   constructor(projectName) {
@@ -45,15 +48,15 @@ export class Project {
       return true;
     });
 
-    // TODO:
-    // Make every todo in order
+    // TODO: Make every todo in order
     // Date: Overdue -> Today -> Tomorrow...
     const orderedTodosByPriority = this.sortTodosByPriority(thisProjectTodos);
     orderedTodosByPriority.forEach((todo) => addTodoToDOM(todo));
   }
 
   loadProjectTodos() {
-    clearTodos()
+    clearTodos();
+    setProjectTitleOfContent(this.projectName);
     this.addAllTodosToDOM();
   }
 
@@ -67,6 +70,7 @@ export class Project {
     addTodoToDOM(todo);
   }
   deleteProjectTodos() {
+    // Get all the todos with the same project value as the projects name and delete them
     console.log(Todo.getTodos());
     Todo.todos = Todo.getTodos().filter((todo) => {
       if (todo.project !== this.projectName) return true;
@@ -74,11 +78,15 @@ export class Project {
     });
   }
   deleteProject() {
+    // This will delete the project from the Project.projects and AFTER that delete all the todos
+    // from the project with a call to deleteProjectTodos
     const index = Project.projects.indexOf(this.projectName);
     Project.projects.splice(index, 1);
     this.deleteProjectTodos();
   }
   addTodoWithDialog() {
+    // Show the dialog to add it, with the project as the argument, the 
+    // handling of that object will be done by the function.
     showTodoCreationDialog(this);
   }
 }
