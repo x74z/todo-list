@@ -42,7 +42,7 @@ import getSavedTodos from "./local-storage-functions/getting-saved-items/get-sav
   const savedTodos = getSavedTodos();
   if(savedTodos !== null){
     savedTodos.forEach(todo => {
-      new Todo(todo.title, todo.description, todo.dueDate, todo.priority, todo.projects);
+      new Todo(todo.title, todo.description, todo.dueDate, todo.priority, todo.project);
     });
 
      // Show All todos when they are populated

@@ -5,6 +5,7 @@ import clearTodos from "../dom-modules/clear-todos";
 import setProjectTitleOfContent from "../dom-modules/set-current-projects-title";
 import storeProjects from "../local-storage-functions/store/store-projects";
 import addTodosArrayToDOM from "../dom-modules/add-todos-to-dom";
+import storeTodos from "../local-storage-functions/store/store-todos";
 
 export class Project {
   // Here the projects will be stored as just names, since you only need the name
@@ -67,10 +68,12 @@ export class Project {
   deleteProjectTodos() {
     // Get all the todos with the same project value as the projects name and delete them
     console.log(Todo.getTodos());
+    console.log("DELETING")
     Todo.todos = Todo.getTodos().filter((todo) => {
       if (todo.project !== this.projectName) return true;
       return false;
     });
+    storeTodos();
   }
   deleteProject() {
     // This will delete the project from the Project.projects and AFTER that delete all the todos
