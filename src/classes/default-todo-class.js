@@ -1,3 +1,4 @@
+// Legacy code, TODO: make default todos a project class maybe? Delete soon
 import { Todo } from "../classes/todo-class.js";
 
 export class DefaultTodo extends Todo {

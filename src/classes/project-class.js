@@ -1,9 +1,10 @@
 import { showTodoCreationDialog } from "../create-todo-dialog";
-import { addTodoToDOM } from "../dom-modules/add-todo-to-dom";
 import { addProjectToDom } from "../dom-modules/add-project-to-dom";
 import { Todo } from "../classes/todo-class";
 import clearTodos from "../dom-modules/clear-todos";
 import setProjectTitleOfContent from "../dom-modules/set-current-projects-title";
+import storeProjects from "../local-storage-functions/store/store-projects";
+import addTodosArrayToDOM from "../dom-modules/add-todos-to-dom";
 
 export class Project {
   // Here the projects will be stored as just names, since you only need the name
@@ -11,47 +12,42 @@ export class Project {
   static projects = [];
   static getProjects = ()=> Project.projects;
   constructor(projectName) {
-    this.projectName = projectName;
-    Project.projects.push(this.projectName);
-    console.log(Project.projects);
+    (()=>{
+      // Only add the projects if the is no project with that name
+      if (Project.projects.indexOf(projectName) !== -1){
+        console.log(`"${projectName}" project already exists`); 
+        return;
+      }
 
-    (() => {
-      // Add the project to the navbar on creation
-      addProjectToDom(this);
+      this.projectName = projectName;
+      Project.projects.push(this.projectName);
+
+      console.log(Project.projects);
+
+      (() => {
+        // Add the project to the navbar on creation
+        addProjectToDom(this);
+        // Save the projects aswell
+        storeProjects();
+        console.log(`PROJECTS this ${this}`);
+      })();
+      console.log(Project.projects);
     })();
-    console.log(Project.projects);
+    
   }
-
-  sortTodosByPriority(todosArray) {
-    let orderedTodos = todosArray.sort((a, b) => {
-      // This will turn the prioritys into numbers, and sort them: High = 1, medium = 2...
-      let firstNumberPriorityInNumber;
-      if (a.priority === "high") firstNumberPriorityInNumber = 1;
-      else if (a.priority === "medium") firstNumberPriorityInNumber = 2;
-      else if (a.priority === "low") firstNumberPriorityInNumber = 3;
-      else if (a.priority === "none") firstNumberPriorityInNumber = 4;
-
-      let secondNumberPriorityInNumber;
-      if (b.priority === "high") secondNumberPriorityInNumber = 1;
-      else if (b.priority === "medium") secondNumberPriorityInNumber = 2;
-      else if (b.priority === "low") secondNumberPriorityInNumber = 3;
-      else if (b.priority === "none") secondNumberPriorityInNumber = 4;
-
-      return firstNumberPriorityInNumber - secondNumberPriorityInNumber;
-    });
-    return orderedTodos;
-  }
-  addAllTodosToDOM() {
-    // Loads all the of the todos with projectName === todo.project
+  getProjectTodos(){
     const thisProjectTodos = Todo.getTodos().filter((todo) => {
       if (todo.project !== this.projectName) return false;
       return true;
     });
 
-    // TODO: Make every todo in order
-    // Date: Overdue -> Today -> Tomorrow...
-    const orderedTodosByPriority = this.sortTodosByPriority(thisProjectTodos);
-    orderedTodosByPriority.forEach((todo) => addTodoToDOM(todo));
+    return thisProjectTodos;
+  }
+
+  addAllTodosToDOM() {
+    // Loads all the of the todos with projectName === todo.project
+    const thisProjectTodos = this.getProjectTodos();
+    addTodosArrayToDOM(thisProjectTodos);
   }
 
   loadProjectTodos() {
@@ -62,12 +58,11 @@ export class Project {
 
   createTodo(title, description, dueDate, priority) {
     // this switches to the todos(load them) after making the new todo so they show up after making one
-    this.loadProjectTodos();
     const todo = new Todo( title, description, dueDate, priority,
       this.projectName, // Set the project property to the name.
     );
     // this.addTodoToProjectArray(todo);
-    addTodoToDOM(todo);
+    this.loadProjectTodos();
   }
   deleteProjectTodos() {
     // Get all the todos with the same project value as the projects name and delete them
@@ -83,6 +78,8 @@ export class Project {
     const index = Project.projects.indexOf(this.projectName);
     Project.projects.splice(index, 1);
     this.deleteProjectTodos();
+    // Store the new array without the delete projects
+    storeProjects();
   }
   addTodoWithDialog() {
     // Show the dialog to add it, with the project as the argument, the 
