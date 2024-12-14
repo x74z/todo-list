@@ -1,5 +1,5 @@
 export default function getSavedProjects() {
-  const projectsArray = localStorage.getItem("projects");
-  console.log(projectsArray);
+  const projectsArray = JSON.parse(localStorage.getItem("projects"));
+  console.log(projectsArray)
   return projectsArray;
 }

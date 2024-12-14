@@ -1,5 +1,5 @@
-export default function getSavedtodos() {
-  const todosArray = localStorage.getItem("todos");
+export default function getSavedTodos() {
+  const todosArray = JSON.parse(localStorage.getItem("todos"));
   console.log(todosArray);
   return todosArray;
 }
