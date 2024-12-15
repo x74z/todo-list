@@ -13,6 +13,7 @@ import getSavedTodos from "./local-storage-functions/getting-saved-items/get-sav
 // Reload Project when moving a todo to another project
 // Style the dialog
 // Add date dialog change
+// add Project add dialog
 // Add overdue button to see expired todos
 //
 //
