@@ -125,10 +125,13 @@ body {
   --project-buttons-background: #dedede;
   --project-buttons-border-size: 1px;
   display: flex;
-  justify-content: space-between;
+
+  /* This should be changed */
+  justify-content: flex-start;
 
   /* Since every button will be the same, just style them all here */
   button {
+    font-size: 1.3rem;
     border-radius: 10px;
     background-color: var(--project-buttons-background);
     border: var(--project-buttons-border-size) solid var(--cornflower-blue);
