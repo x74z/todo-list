@@ -10,6 +10,10 @@ import getSavedTodos from "./local-storage-functions/getting-saved-items/get-sav
 // TODO i should do one of these things:
 //
 //HIGHP: : DEFAULT TODOS ARE NOT GETTING SAVED(Fix this by making it a project???????) -----------
+//Maybe add the project "default" and when loading them search for that?
+// Maybe there is no need to make it a project??
+
+
 //
 // Reload Project when moving a todo to another project
 // Add date dialog change to the todo(like change project button)
