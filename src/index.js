@@ -9,12 +9,14 @@ import getSavedTodos from "./local-storage-functions/getting-saved-items/get-sav
 
 // TODO i should do one of these things:
 //
+//HIGHP: : DEFAULT TODOS ARE NOT GETTING SAVED(Fix this by making it a project???????) -----------
 //
 // Reload Project when moving a todo to another project
 // Add date dialog change to the todo(like change project button)
 // Make the add project a modal, not a prompt
 // Make default a project
 // Add overdue button to see expired todos
+// Handle what happens if there are too many projects(cannot scroll a sticky nav)
 //
 //
 //
